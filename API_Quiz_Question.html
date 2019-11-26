@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title> API Quiz Question </title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	var url = "https://api.nasa.gov/planetary/apod?api_key=9pjGNQxchuejPikOydWaLje2VchC9X4MveymfPP8";
+	$.ajax({
+		url: url,
+		success: function(result){
+			console.log(result)
+			if(result["media_type"] == "image"){
+				$("#nasa_img").attr("src", result.url);
+			}
+
+			else{
+				$("#nasa_img").attr("alt", "No image today!!");
+			}
+
+		}
+	})
+
+</script>
+</head>
+<body>
+    <h1> API Quiz Question </h1>
+    <img id="nasa_img" alt = "" width="250px"/>
+</body>
+</html>
